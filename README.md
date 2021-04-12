@@ -1,3 +1,3 @@
 # ansible-config-mgt
 
-This is Jenkins - ansible
+This is Jenkins - ansible configuration management
