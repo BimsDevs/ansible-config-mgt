@@ -1,0 +1,49 @@
+---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure wireshark is at the latest version
+    yum:
+      name: wireshark
+      state: latest
+
+- name: update LB server
+  hosts: lb
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure wireshark is at the latest version
+    apt:
+      name: wireshark
+      state: latest
+
+
+
+- name: Creating a directory and set time zone with a simple script 
+  hosts: all 
+  become: true 
+  tasks: 	
+
+  - name: Creating a directory 
+    file: 
+      path: /playbooks/new-folder  
+      state: directory 
+
+  - name: Creating a new file inside the new directory
+    file:
+      path: /playbooks/new-folder/new-file
+      state: touch
+
+  - name: Set timezone to Europe/London
+    timezone:
+       name: Europe/London
+
+  - name: Status 
+    command: echo "All tasks completed"
+
+
+        
