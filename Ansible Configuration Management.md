@@ -561,11 +561,11 @@ Update your ansible playbook with some new Ansible tasks and go through the full
 
 -   Checkout into branch: git checkout ansible-5511-feature01
 
--   Created a new file: touch test
+-   Create a new file: touch test
 
 -   Push to github: 
 
--   Added random comments into the test file in github
+-   Add random comments into the test file in github
 
 -   Commit change (github)
 
