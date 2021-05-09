@@ -368,9 +368,10 @@ Feel free to update this playbook with following tasks:
 -   Create a directory and a file inside it
 
 -   Change timezone on all servers
--   
-## 
-name: Set timezone to Asia/Tokyo
+
+# Sample syntax:
+
+-   name: Set timezone to Asia/Tokyo
 
 Hosts: ubuntu
 
@@ -629,7 +630,7 @@ The above shows the execution of automated routine tasks by implementing this An
 
 ## Credits:
 
-Darey.io
+darey.io
 
 <https://phoenixnap.com/kb/ansible-create-file> 
 
