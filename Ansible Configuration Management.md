@@ -41,7 +41,7 @@ Check your Ansible version by running ansible --version
 
 ![](https://lh6.googleusercontent.com/dJeXb-HX8B6nr79HKosy1RUCKihWLOb-uNUIwJDXb1js1e-3glIFmU1b1bxuVXG8uLgTzvUMq8ZimyQfbsiSVP6MaC0-fl7VAYtAb6QVDIoEFVSKZA3NYRUmRFYtLw9m4xlzFdV8)
 
-1.  Configure Jenkins build job to save your repository content every time you change it - this will solidify your Jenkins configuration skills acquired in [Project 9](https://professional-pbl.darey.io/en/latest/project9.html).
+## Configure Jenkins build job to save your repository content every time you change it - this will solidify your Jenkins configuration skills acquired in [Project 9](https://professional-pbl.darey.io/en/latest/project9.html).
 
 -   Create a new Freestyle project ansible in Jenkins and point it to your 'ansible-config-mgt' repository.
 
@@ -55,7 +55,7 @@ Check your Ansible version by running ansible --version
 
 -   Configure Webhook in GitHub and set webhook to trigger ansible build.
 
-1.Enable webhooks in GitHub repository settings.
+## Enable webhooks in GitHub repository settings.
 
 -   Go into the tooling github repository:
 
@@ -73,9 +73,11 @@ http://35.178.239.175:8080/github-webhook/
 
 ![](https://lh5.googleusercontent.com/rqdkat6q1dqnS7Ge8Nvl1MXJANF9DNWh_eK8kkOWwz_OiTs4a3fWIVrteXRB5z-YzLV6lsOUN0UNGBEuP9mA8m9gmx4EZd13UhpixGWXKd1C4JLhkQCQ5AWJMKVkyDy2AATvTE6I)
 
-Blocker: Unable to successfully build the job.
+## Blocker: 
 
-  Updated Jenkins URL with the new public IP address under Jenkins 
+  Unable to successfully build the job.
+
+  Solution:  Updated Jenkins URL with the new public IP address under Jenkins 
 
               Location. Also ensured that the file in Github was under the Master's record.
 
@@ -97,7 +99,7 @@ Now your setup will look like this:
 
 ![](https://lh3.googleusercontent.com/7o72Si-1TxPBML4HRCk6np_5PtUyd3fozXd3Gj8qSK0oPrfwjOcqwgyg2qZDy6KpPjHSc0AtVcnF5eVUc773i_2I8YXx4t3fxg8DGVWIWftoT1MgsCns-KAjTpNlP3W6ghV6yVIV)
 
-Allocate Elastic IP address to Jenkins - Ansible server
+## Allocate Elastic IP address to Jenkins - Ansible server
 
 Tip Every time you stop/start your Jenkins-Ansible server - you have to reconfigure GitHub webhook to a new IP address, in order to avoid it, it makes sense to allocate an [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) to your Jenkins-Ansible server (you have done it before to your LB server in [Project 10](https://professional-pbl.darey.io/en/latest/project10.html)). Note that Elastic IP is free only when it is being allocated to an EC2 Instance, so do not forget to release Elastic IP once you terminate your EC2 Instance.
 
@@ -125,7 +127,7 @@ Steps:
 
 ![](https://lh3.googleusercontent.com/9S8kiqfcvT78arOAa7Kk9YUxVMOBTSXbt0mGbDS_76Hj2lLxOklyvgJpkQWb8dD-uyduqLJMr_dWLAUv3idouGbk3jBpqrScJILvFraGiyDple9Xu9xNzvihHwGnxgE1YzNvvbR9)
 
-Elastic IP address: [18.132.219.41](https://eu-west-2.console.aws.amazon.com/ec2/v2/home?region=eu-west-2#ElasticIpDetails:AllocationId=eipalloc-047271799d471a966)
+# Elastic IP address: [18.132.219.41](https://eu-west-2.console.aws.amazon.com/ec2/v2/home?region=eu-west-2#ElasticIpDetails:AllocationId=eipalloc-047271799d471a966)
 
 Step 2 - Prepare the development environment using Visual Studio Code
 ---------------------------------------------------------------------
@@ -205,27 +207,27 @@ git clone <https://github.com/BimsDevs/ansible-config-mgt.git>
 
 ![](https://lh5.googleusercontent.com/v1BSCW8X0T7PXmxhyf9OZidwxE0tAdkur2V3Nx77bRUEu5TSwXVIuAh9_KbPsVf45Xmf7G-DF7jMaxodX3OSVL62hfqckoKFrMglcvvpXtukltMYVTFsDfKzeOX06toqBAdtZ6ij)
 
-1.  Checkout the newly created feature branch to your local machine and start building your code and directory structure
+4.  Checkout the newly created feature branch to your local machine and start building your code and directory structure
 
 git checkout ansible-5511-feature01
 
 ![](https://lh4.googleusercontent.com/BPsMa72XRjqcKsj3msl2W3E-k9oW2idoQp32FAutBLdIvDG1he80LJu8kRj62ZVplriQfaysfnCxyMKR2NJ4vAGnzdvogqP2iCd1lN-14EnMSdVIWam3lOZN6KlzAeFt5ofJQhPf)
 
-1.  Create a directory and name it playbooks - it will be used to store all the playbook files.
+5.  Create a directory and name it playbooks - it will be used to store all the playbook files.
 
 mkdir playbooks
 
-1.  Within the playbooks folder, create your first playbook, and name it common.yml
+6.  Within the playbooks folder, create your first playbook, and name it common.yml
 
 cd playbooks
 
 touch common.yml
 
-1.  Create a directory and name it inventory - it will be used to keep the hosts organised.
+7.  Create a directory and name it inventory - it will be used to keep the hosts organised.
 
 mkdir inventory
 
-1.  Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging  Testing and Production) dev, staging, uat, and prod respectively.
+8.  Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging  Testing and Production) dev, staging, uat, and prod respectively.
 
 cd inventory
 
@@ -241,7 +243,7 @@ Save below inventory structure in the inventory/dev file to start configuring yo
 
 Note: Ansible uses TCP port 22 by default, which means it needs to ssh into target servers from Jenkins-Ansible host - for this you need to copy your private (.pem) key and provide a path to it so Ansible could use it to connect. Do not forget to change permissions to your private key chmod 400 key.pem, otherwise EC2 will not accept the key. Also notice, that your Load Balancer user is ubuntu and user for RHEL-based servers is ec2-user.
 
-IP Addresses (private)
+## IP Addresses (private)
 
 NFS : 172.31.7.178
 
@@ -253,7 +255,7 @@ Database: 172.31.18.63
 
 Load balancer: 172.31.46.227
 
-Update the inventory/dev.yml file with this snippet of code and save (ctrl+s):
+## Update the inventory/dev.yml file with this snippet of code and save (ctrl+s):
 
 [nfs]
 
@@ -273,7 +275,7 @@ Update the inventory/dev.yml file with this snippet of code and save (ctrl+s):
 
 <Load-Balancer-Private-IP-Address> ansible_ssh_user='ubuntu' ansible_ssh_private_key_file=<path-to-.pem-private-key>
 
-Updated version
+## Updated version
 
 [nfs]
 
@@ -293,7 +295,7 @@ Updated version
 
 172.31.46.227 ansible_ssh_user='ubuntu'
 
-Output
+## Output
 
 ![](https://lh4.googleusercontent.com/R5I_6f3cmKg_F8MW28eaENhD_90NwzOOWY6cclOT48vwLMm3Xa_egRnBnD8sum2Ejryt7O0QKNfwkRiw4lIwS-91x_KJS11RllJywrGEXQCdnUfNLkl38bAgL-uXl41j09d7ywLE)
 
@@ -305,7 +307,7 @@ It is time to start giving Ansible the instructions on what needs to be performe
 
 In the common.yml playbook you will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure.
 
-Update your playbooks/common.yml file with following code:
+## Update your playbooks/common.yml file with following code:
 
 ---
 
@@ -366,7 +368,8 @@ Feel free to update this playbook with following tasks:
 -   Create a directory and a file inside it
 
 -   Change timezone on all servers
-
+-   
+## 
 name: Set timezone to Asia/Tokyo
 
 Hosts: ubuntu
@@ -388,6 +391,10 @@ Hosts: ubuntu
       path: "/your path"  
 
       state: directory
+      
+      
+ ## Updated version:
+ 
 
 - name: Creating a directory and set time zone with a simple script 
 
@@ -441,13 +448,6 @@ Overall Outputs:
 
 For a better understanding of Ansible playbooks - [watch this video from RedHat](https://youtu.be/ZAdJ7CdN7DY) and read [this article](https://www.redhat.com/en/topics/automation/what-is-an-ansible-playbook).
 
-<https://phoenixnap.com/kb/ansible-create-file> 
-
-<https://docs.ansible.com/ansible/latest/collections/community/general/timezone_module.html>
-
-<https://www.mydailytutorials.com/ansible-create-files/>
-
-<https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/>
 
 ### Step 6 - Update GIT with the latest code
 
@@ -459,7 +459,7 @@ Now you have a separate branch, you will need to know how to raise a [Pull Reque
 
 Commit your code into GitHub:
 
-1.  use git commands to add, commit and push your branch to GitHub.
+# Use git commands to add, commit and push your branch to GitHub.
 
 git status
 
@@ -485,11 +485,11 @@ git push
 
     ![](https://lh6.googleusercontent.com/D3OMw82kSzqiNBZ2ity7ULNna77GSktvty1Atp2pdd2DBm4wC_g0lGP3v7EtUyHx7OvDR00qd_1aNDMkACTdpjEJxUYz2J1klXXxJzy-GnmqmCJKjVg31tBAMSFzzEeUcHUP4FFW)
 
-1.  Wear a hat of another developer for a second, and act as a reviewer.
+. Wear a hat of another developer for a second, and act as a reviewer.
 
-2.  If the reviewer is happy with your new feature development, merge the code to the master branch.
+. If the reviewer is happy with your new feature development, merge the code to the master branch.
 
-Steps:
+# Steps:
 
 Go into the branch which is to be merged to the master in github
 
@@ -534,7 +534,7 @@ Output
 
 ![](https://lh4.googleusercontent.com/U1S8A8wLuB2UoBNSuy6wHPIimy_1tD734QS1QHPag3JY-y7nXz6yiFVX8kX3YFX2azhEch-2BnRglbI7p1F-ISNQvVDnwkwO5eXhx51Wr-ySpwXY19-XXTNLiAkn003NfNJ2gVHa)
 
-Blocker:
+## Blocker:
 
 The below ansible playbook syntax was run but gave an error.
 
@@ -624,4 +624,19 @@ ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/11/archive/inventory/de
 ![](https://lh6.googleusercontent.com/N5U8dBQVoAWarfv2_N7L-JUPw2-41UZUmYEPdbpESWococzNsrS-UsAc9XVd4qOG-P133qdVxI8EKdIoctYdmN5-xDwy4CSUfmWi0IOOwMHiL_Zt20PRmu5rduun_eTatckjvClc)
 
 The above shows the execution of automated routine tasks by implementing this Ansible project.
+
+
+
+## Credits:
+
+Darey.io
+
+<https://phoenixnap.com/kb/ansible-create-file> 
+
+<https://docs.ansible.com/ansible/latest/collections/community/general/timezone_module.html>
+
+<https://www.mydailytutorials.com/ansible-create-files/>
+
+<https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/>
+
 
