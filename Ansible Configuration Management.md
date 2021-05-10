@@ -541,7 +541,7 @@ The below ansible playbook syntax was run but gave an error.
 
 sudo ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/11/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/11/archive/playbooks/common.yml
 
-Solution: 'sudo' was removed and it worked as per above output.
+Solution: 'sudo' was removed and it worked as per above output. This is because the parameter 'become' has been marked as 'yes' in the playbook.
 
 ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/11/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/11/archive/playbooks/common.yml
 
